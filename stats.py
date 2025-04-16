@@ -1,22 +1,14 @@
-def get_num_words():
+def get_word_count(text):
+    words = text.split()
+    return len(words)
+        
+def get_char_count(text):
+    chars={}
+    for char in text:
+        char = char.lower()
+        if char in chars:
+            chars[char]+=1
+        else:
+            chars[char]=1
+    return chars
     
-    def get_book_text(book):
-        file_contents=""
-        with open(book) as f:
-            file_contents = f.read()
-        return file_contents
-
-    def word_count(book):
-        whole=get_book_text(book)
-        word_list=whole.split()
-        words=len(word_list)
-        return words
-        
-
-
-    def main():
-        book="books/frankenstein.txt"
-        print(f"{word_count(book)} words found in the document")
-        
-        
-    main()
